@@ -1,7 +1,8 @@
 #ifndef TUI_H
 #define TUI_H
 
-#include "labirinto.h"
+#include "../commons/bits.h"
+#include "../commons/labirinto.h"
 #include "arquivador.h"
 #include <stdio.h>
 

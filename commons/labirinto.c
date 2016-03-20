@@ -9,6 +9,7 @@ Labirinto novoLabirinto(int linhas, int colunas){
 	labirinto.linhas = linhas;
 	labirinto.colunas = colunas;
 	labirinto.mapa = (char*) malloc(linhas*colunas);
+	labirinto.beginy = labirinto.beginx = labirinto.endy = labirinto.endx = 0;
 	if(labirinto.mapa == NULL){
 		error("novoLabirinto(int,int): falha ao alocar memoria");
 	}
@@ -20,5 +21,6 @@ Labirinto novoLabirinto(int linhas, int colunas){
 void destroiLabirinto(Labirinto labirinto){
 	free(labirinto.mapa);
 	labirinto.linhas = labirinto.colunas = 0;
+	labirinto.beginy = labirinto.beginx = labirinto.endy = labirinto.endx = 0;
 }
 

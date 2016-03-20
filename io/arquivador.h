@@ -1,7 +1,7 @@
 #ifndef ARQUIVADOR_H
 #define ARQUIVADOR_H
 
-#include "labirinto.h"
+#include "../commons/labirinto.h"
 #include <stdio.h>
 
 #define WALL_CHAR 'X'

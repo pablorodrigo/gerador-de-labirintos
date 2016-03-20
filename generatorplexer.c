@@ -1,6 +1,6 @@
-#include "generator.h"
-#include "tui.h"
-#include "arquivador.h"
+#include "generators/generator.h"
+#include "io/tui.h"
+#include "io/arquivador.h"
 
 int main(int argc, char **argv){
 	int linhas, colunas;

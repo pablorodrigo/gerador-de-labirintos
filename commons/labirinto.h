@@ -10,9 +10,12 @@
 #define WALL 0x02
 #define BEGIN 0x04
 #define END 0x08
+#define VISITED 0x10
 
 typedef struct {
 	int linhas, colunas;
+	int beginy, beginx;
+	int endy, endx;
 	char *mapa;
 } Labirinto;
 
