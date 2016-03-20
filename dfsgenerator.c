@@ -2,26 +2,14 @@
  * algoritmo de geracao por busca em profundidade. O algoritimo "cava" o labirinto ate chegar numa deadend, e entao faz um backtrack ate ser possivel cavar novamente. Neste codigo utiliza-se recursao como pilha para o backtrack.
  */
 
-#include "tui.h"
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
+#include "generator.h"
 
-#define SPACE 0
-#define WALL 1
-#define INVALIDO 2
-#define NORTE 0
-#define SUL 1
-#define OESTE 2
-#define LESTE 3
-#define DEAD_END 4
-
-int LINHAS = 24, COLUNAS = 30;
-char *map = NULL;
+char *map;
+int LINHAS, COLUNAS;
 
 char mapAt(int y, int x){
 	if(x < 0 || x >= COLUNAS || y < 0 || y >= LINHAS){
-		return INVALIDO;
+		return INVALID;
 	}
 	return map[y*COLUNAS +x];
 }
@@ -69,19 +57,9 @@ void dig(int y, int x){
 	}
 }
 
-int main(int argc, char **argv){
-	sscanf(argv[1], "%d", &LINHAS);
-	sscanf(argv[2], "%d", &COLUNAS); 
-	map = malloc(LINHAS*COLUNAS);
-	memset(map, !SPACE, LINHAS*COLUNAS);
-	srand (time(NULL));
-
-	dig(2,2);
-	starttui();
-	print(LINHAS, COLUNAS, map);
-	getch();
-	closetui();
-	
-	free(map);
-	return 0;
+void dfsGenerate(Labirinto l){
+	LINHAS = l.linhas;
+	COLUNAS = l.colunas;
+	map = l.mapa;
+	dig(1,1);
 }

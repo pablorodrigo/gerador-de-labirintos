@@ -1,13 +1,16 @@
 #ifndef TUI_H
 #define TUI_H
 
-#include <ncurses.h>
+#include "labirinto.h"
+#include "arquivador.h"
+#include <stdio.h>
 
 //metodo para imprimir uma matriz
-void print(int lines, int columns, char *map);
+void print(Labirinto labirinto);
 
 //metodos para iniciar e terminar o ncurses
 void starttui();
 void closetui();
 
+void printstd(Labirinto labirinto);
 #endif

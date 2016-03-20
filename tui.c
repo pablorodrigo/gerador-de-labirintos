@@ -1,23 +1,13 @@
 #include "tui.h"
 
-void print(int lines, int columns, char *map){
+void printstd(Labirinto labirinto){
 	int y,x;
-	for(y=0;y<lines;y++){
-		int offset = y*columns;
-		for(x=0;x<columns;x++){
-			long character = map[offset +x]? ACS_BLOCK: ' ';
-			mvaddch(y,x,character);
+	for(y=0;y<labirinto.linhas;y++){
+		int offset = y*labirinto.colunas;
+		for(x=0;x<labirinto.colunas;x++){
+			long character = labirinto.mapa[offset +x] == WALL? WALL_CHAR: SPACE_CHAR;
+			putchar(character);
 		}
+		puts("");
 	}
-	
-	refresh();
-}
-
-void starttui(){
-	initscr();
-	attron(A_ALTCHARSET);
-}
-
-void closetui(){
-	endwin();
 }
